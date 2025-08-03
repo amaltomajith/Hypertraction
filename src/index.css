@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css?family=Inter:400,600,700,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 17 17 17;
+    --foreground: 255 255 255;
+
+    --card: 17 17 17;
+    --card-foreground: 255 255 255;
+
+    --popover: 17 17 17;
+    --popover-foreground: 255 255 255;
+
+    --primary: 255 90 0;
+    --primary-foreground: 255 255 255;
+
+    --secondary: 40 44 48;
+    --secondary-foreground: 255 255 255;
+
+    --muted: 40 44 48;
+    --muted-foreground: 156 163 175;
+
+    --accent: 40 44 48;
+    --accent-foreground: 255 255 255;
+
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+
+    --border: 40 44 48;
+    --input: 40 44 48;
+    --ring: 255 90 0;
+
+    --radius: 0.75rem;
+
+    --orange: 255 90 0;
+    --nav-bg: rgba(20, 24, 28, 0.6);
+    --overlay: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.85) 0%,
+      rgba(39, 45, 51, 0) 100%
+    );
+    --white: 255 255 255;
+    --gray: 229 231 235;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", Arial, sans-serif;
+    background: #111;
+    color: rgb(var(--white));
+    overflow-x: hidden;
+  }
+  body {
+    min-height: 100vh;
+    position: relative;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Inter", Arial, sans-serif;
+    font-weight: 600;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Fix z-index issues and responsiveness */
+  .hero-section {
+    position: relative;
+    z-index: 1;
+  }
+
+  .content-section {
+    position: relative;
+    z-index: 2;
+    background: #111;
+  }
+
+  /* Responsive design improvements */
+  @media (max-width: 768px) {
+    .hero-content {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      line-height: 1.1;
+    }
+
+    .nav-mobile {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero-title {
+      font-size: 2.5rem;
+    }
+
+    .section-padding {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+}
