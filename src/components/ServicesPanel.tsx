@@ -23,34 +23,8 @@ interface ServicesPanelProps {
 const ServicesPanel = ({ className = "" }: ServicesPanelProps) => {
   const services: ServiceItem[] = [
     {
-      id: "email-marketing",
-      title: "Email Marketing",
-      description:
-        "Strategic email campaigns designed to nurture leads and drive conversions with personalized messaging that resonates with your target audience.",
-      icon: <Mail className="h-6 w-6 text-primary" />,
-      benefits: [
-        "Targeted audience segmentation",
-        "A/B testing for optimal performance",
-        "Conversion-focused copywriting",
-        "Detailed analytics and reporting",
-      ],
-    },
-    {
-      id: "personalized-outbound",
-      title: "Personalized Outbound",
-      description:
-        "Highly customized outreach strategies that cut through the noise and connect with decision-makers through relevant, value-driven communication.",
-      icon: <Briefcase className="h-6 w-6 text-primary" />,
-      benefits: [
-        "Research-backed prospect targeting",
-        "Custom messaging frameworks",
-        "Multi-touch engagement sequences",
-        "Continuous optimization based on response data",
-      ],
-    },
-    {
       id: "sdr-services",
-      title: "SDR Services",
+      title: "SDR-as-a-Service",
       description:
         "Comprehensive sales development representation that combines email outreach and phone follow-up to qualify leads and book meetings with potential clients.",
       icon: <Phone className="h-6 w-6 text-primary" />,
@@ -62,6 +36,32 @@ const ServicesPanel = ({ className = "" }: ServicesPanelProps) => {
       ],
     },
     {
+      id: "personalized-outbound",
+      title: "Hyper-personalised Outbound",
+      description:
+        "Fully personalised (based on account, prospect or feature) and sequenced accordingly over 9-12 days for maximum response rates.",
+      icon: <Briefcase className="h-6 w-6 text-primary" />,
+      benefits: [
+        "Research-backed prospect targeting",
+        "Custom messaging frameworks",
+        "Multi-touch engagement sequences",
+        "Continuous optimization based on response data",
+      ],
+    },
+    {
+      id: "email-marketing",
+      title: "Email Marketing",
+      description:
+        "Build and design lists of warm prospects / ICP accounts and target a bi-monthly targeted outbound. ICP is identified and lists are pre-approved before outbound.",
+      icon: <Mail className="h-6 w-6 text-primary" />,
+      benefits: [
+        "Warm up cold prospects",
+        "Nurture win later deals",
+        "A/B testing for optimal performance",
+        "Detailed analytics and reporting",
+      ],
+    },
+    {
       id: "vc-funding",
       title: "VC Funding",
       description:
@@ -69,7 +69,6 @@ const ServicesPanel = ({ className = "" }: ServicesPanelProps) => {
       icon: <TrendingUp className="h-6 w-6 text-primary" />,
       benefits: [
         "Investor targeting and research",
-        "Pitch deck optimization",
         "Warm introductions to relevant VCs",
         "Follow-up management and tracking",
       ],

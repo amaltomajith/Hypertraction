@@ -93,6 +93,29 @@
     background: #111;
   }
 
+  /* Orange placeholder text styling */
+  input::placeholder,
+  textarea::placeholder {
+    color: #ff5a00 !important;
+    opacity: 1;
+  }
+
+  input::-webkit-input-placeholder,
+  textarea::-webkit-input-placeholder {
+    color: #ff5a00 !important;
+  }
+
+  input::-moz-placeholder,
+  textarea::-moz-placeholder {
+    color: #ff5a00 !important;
+    opacity: 1;
+  }
+
+  input:-ms-input-placeholder,
+  textarea:-ms-input-placeholder {
+    color: #ff5a00 !important;
+  }
+
   /* Responsive design improvements */
   @media (max-width: 768px) {
     .hero-content {

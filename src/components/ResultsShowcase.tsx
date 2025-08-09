@@ -17,32 +17,32 @@ interface ResultsShowcaseProps {
 }
 
 const ResultsShowcase = ({
-  title = "Client Success Metrics",
-  subtitle = "Real results from our outbound systems",
+  title = "Past Results",
+  subtitle = "Over the last 2 years, we generated",
   stats = [
     {
-      label: "Average Revenue Growth",
-      value: "147%",
-      subtext: "Year over year",
+      label: "Qualified Pipeline Sourced",
+      value: "$6M+",
+      subtext: "Total pipeline",
       progress: 85,
     },
     {
-      label: "Lead Response Rate",
-      value: "32%",
-      subtext: "Industry avg: 8%",
+      label: "Closed Pipeline",
+      value: "$2M+",
+      subtext: "Successfully closed",
       progress: 75,
     },
     {
-      label: "Meetings Booked",
-      value: "1,200+",
-      subtext: "Last 12 months",
+      label: "Qualified Meetings Booked",
+      value: "200+",
+      subtext: "High-quality meetings",
       progress: 90,
     },
     {
-      label: "ROI on Outbound",
-      value: "4.3x",
-      subtext: "Average client return",
-      progress: 80,
+      label: "ROI Generated",
+      value: "30x+",
+      subtext: "Return on investment",
+      progress: 95,
     },
   ],
 }: ResultsShowcaseProps) => {

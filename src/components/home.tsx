@@ -21,9 +21,8 @@ const Home = () => {
           </h2>
           <div className="prose prose-lg prose-invert max-w-none">
             <p className="text-xl text-gray-300 mb-6 leading-relaxed">
-              Over the last 3 years, the 2 of us - yes, the 2 of us, have
-              generated over a total of $10M in pipeline. We've closed about $3M
-              in total pipeline out of this $10M.
+              The two of us have generated a total pipeline of $6M. We've closed
+              over $2M in total pipeline out of this $6M.
             </p>
             <p className="text-xl text-gray-300 mb-6 leading-relaxed">
               But then again, HyperTraction wasn't built to just scale revenue.
@@ -31,7 +30,7 @@ const Home = () => {
               nuances we would otherwise miss during outbound.
             </p>
             <p className="text-xl text-gray-300 mb-6 leading-relaxed">
-              HyperTraction is for the founders balls deep in building a
+              HyperTraction is for the founders neck deep in perfecting the
               product.
             </p>
             <p className="text-xl text-gray-300 mb-6 leading-relaxed">
@@ -69,7 +68,9 @@ const Home = () => {
             Ready to scale your outbound efforts? Let's discuss how we can help
             you reach your revenue goals.
           </p>
-          <LeadCaptureForm />
+          <LeadCaptureForm
+            googleScriptUrl={import.meta.env.VITE_GOOGLE_SCRIPT_URL || ""}
+          />
         </div>
       </section>
 
