@@ -70,6 +70,8 @@ const Home = () => {
           </p>
           <LeadCaptureForm
             googleScriptUrl={import.meta.env.VITE_GOOGLE_SCRIPT_URL || ""}
+            title=""
+            description=""
           />
         </div>
       </section>

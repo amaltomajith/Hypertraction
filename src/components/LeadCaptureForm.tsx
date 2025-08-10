@@ -44,7 +44,7 @@ interface LeadCaptureFormProps {
 const LeadCaptureForm = ({
   onSubmit = () => {},
   title = "Get in touch",
-  description = "Ready to scale your outbound efforts? Fill out the form below and we'll get back to you within 24 hours.",
+  description = "",
   submitButtonText = "Submit",
   googleScriptUrl = "",
 }: LeadCaptureFormProps) => {
@@ -117,12 +117,16 @@ const LeadCaptureForm = ({
     <div className="w-full max-w-lg mx-auto bg-[#111]">
       <Card className="border border-gray-700 shadow-xl bg-[#1a1a1a]/90 backdrop-blur-sm rounded-3xl">
         <CardHeader className="text-center pb-8">
-          <CardTitle className="text-3xl font-bold text-white">
-            {title}
-          </CardTitle>
-          <CardDescription className="text-lg text-gray-300 leading-relaxed">
-            {description}
-          </CardDescription>
+          {title && (
+            <CardTitle className="text-3xl font-bold text-white">
+              {title}
+            </CardTitle>
+          )}
+          {description && (
+            <CardDescription className="text-lg text-gray-300 leading-relaxed">
+              {description}
+            </CardDescription>
+          )}
 
           {/* Status Messages */}
           {submitStatus === "success" && (
@@ -251,9 +255,13 @@ const LeadCaptureForm = ({
         </CardContent>
         <CardFooter className="flex flex-col items-center text-sm text-gray-400 pb-8 space-y-2">
           <p>We respect your privacy and will never share your information.</p>
-          {googleScriptUrl && (
+          {googleScriptUrl ? (
             <p className="text-xs text-gray-500">
               ✓ Secured with SPF, DMARC, and DKIM email authentication
+            </p>
+          ) : (
+            <p className="text-xs text-red-400">
+              ⚠ Google Apps Script URL not configured
             </p>
           )}
         </CardFooter>

@@ -82,9 +82,16 @@ const HeroSection = ({
           <div className="flex items-center gap-4 md:gap-12 w-full">
             <a
               href="#"
-              className="text-xl md:text-2xl font-black text-white no-underline tracking-tight transition-all duration-300"
+              className="flex items-center gap-3 no-underline transition-all duration-300"
             >
-              hypertraction
+              <img
+                src="/logo.png"
+                alt="Hypertraction Logo"
+                className="h-10 md:h-12 w-auto"
+              />
+              <span className="text-xl md:text-2xl font-black text-white tracking-tight">
+                hypertraction
+              </span>
             </a>
             <div className="flex items-center gap-4 md:gap-8 relative z-[10000] ml-auto">
               {navItems.map((item) => (
