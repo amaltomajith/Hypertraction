@@ -1,7 +1,15 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet";
 
 interface HeroSectionProps {
   headline?: string;
@@ -22,6 +30,7 @@ const HeroSection = ({
   },
 }: HeroSectionProps) => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -93,7 +102,8 @@ const HeroSection = ({
                 hypertraction
               </span>
             </a>
-            <div className="flex items-center gap-4 md:gap-8 relative z-[10000] ml-auto">
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-4 md:gap-8 relative z-[10000] ml-auto">
               {navItems.map((item) => (
                 <button
                   key={item.name}
@@ -103,6 +113,18 @@ const HeroSection = ({
                   {item.name}
                 </button>
               ))}
+            </div>
+
+            {/* Mobile Hamburger Menu */}
+            <div className="md:hidden ml-auto relative z-[10000]">
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsMobileMenuOpen(true)}
+                className="text-white hover:text-[#ff5a00] hover:bg-transparent p-2"
+              >
+                <Menu className="h-6 w-6" />
+              </Button>
             </div>
           </div>
         </nav>
@@ -140,6 +162,50 @@ const HeroSection = ({
           </motion.div>
         </div>
       </main>
+
+      {/* Mobile Menu Sheet */}
+      <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+        <SheetContent
+          side="right"
+          className="bg-primary border-none w-80 p-0 transition-all duration-300 ease-in-out"
+        >
+          <SheetHeader className="flex items-center justify-between p-6 border-b border-white/10">
+            <SheetTitle className="text-white text-xl font-bold">
+              Menu
+            </SheetTitle>
+            <SheetClose asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-white hover:text-gray-200 hover:bg-white/10 p-2 transition-all duration-200"
+              >
+                <X className="h-6 w-6" />
+              </Button>
+            </SheetClose>
+          </SheetHeader>
+          <div className="flex flex-col gap-2 p-6">
+            {navItems.map((item, index) => (
+              <button
+                key={item.name}
+                onClick={() => {
+                  // Close menu first for smooth transition
+                  setIsMobileMenuOpen(false);
+                  // Small delay to allow menu to close before scrolling
+                  setTimeout(() => {
+                    item.onClick();
+                  }, 300);
+                }}
+                className="text-white text-left text-lg font-medium py-4 px-4 rounded-lg border-b border-white/10 last:border-b-0 transition-all duration-200 hover:bg-white/10 hover:text-gray-100 active:bg-white/20"
+                style={{
+                  animationDelay: `${index * 50}ms`,
+                }}
+              >
+                {item.name}
+              </button>
+            ))}
+          </div>
+        </SheetContent>
+      </Sheet>
     </section>
   );
 };
