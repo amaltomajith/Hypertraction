@@ -48,6 +48,12 @@ const LeadCaptureForm = ({
   submitButtonText = "Submit",
   googleScriptUrl = "",
 }: LeadCaptureFormProps) => {
+  // Debug logging for environment variable
+  console.log("Google Script URL received:", googleScriptUrl);
+  console.log(
+    "Environment variable VITE_GOOGLE_SCRIPT_URL:",
+    import.meta.env.VITE_GOOGLE_SCRIPT_URL,
+  );
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<
     "idle" | "success" | "error"
@@ -260,9 +266,12 @@ const LeadCaptureForm = ({
               ✓ Secured with SPF, DMARC, and DKIM email authentication
             </p>
           ) : (
-            <p className="text-xs text-red-400">
-              ⚠ Google Apps Script URL not configured
-            </p>
+            <div className="text-xs text-red-400 space-y-1">
+              <p>⚠ Google Apps Script URL not configured</p>
+              <p className="text-xs text-gray-500">
+                Debug: URL = "{googleScriptUrl || "empty"}"
+              </p>
+            </div>
           )}
         </CardFooter>
       </Card>
