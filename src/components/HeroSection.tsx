@@ -66,20 +66,25 @@ const HeroSection = ({
     <section className="relative w-full min-h-screen bg-[#111] text-white overflow-hidden">
       {/* Video Background */}
       <div className="absolute top-0 left-0 w-full h-full z-0 overflow-hidden">
-        <iframe
-          src="https://www.youtube.com/embed/HZzLkTgMCSE?autoplay=1&mute=1&loop=1&playlist=HZzLkTgMCSE&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablekb=1&fs=0&cc_load_policy=0&playsinline=1&enablejsapi=0"
-          className="absolute top-1/2 left-1/2 w-[177.77vh] h-[56.25vw] min-h-full min-w-full transform -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute top-1/2 left-1/2 w-[177.77vh] h-[56.25vw] min-h-full min-w-full transform -translate-x-1/2 -translate-y-1/2 pointer-events-none object-cover"
           style={{
             minWidth: "100vw",
             minHeight: "100vh",
             width: "177.77vh",
             height: "56.25vw",
           }}
-          frameBorder="0"
-          allow="autoplay; encrypted-media"
-          allowFullScreen={false}
-          title="Background Video"
-        />
+        >
+          <source
+            src="https://raw.githubusercontent.com/amaltomajith/Hypertraction/main/img/videoplayback%20(online-video-cutter.com).mp4"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
       </div>
 
       {/* Dark Overlay */}
